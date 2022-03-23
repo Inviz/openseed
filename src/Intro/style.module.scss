@@ -3,3 +3,14 @@
   align-items: center;
 
 }
+
+.inside {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;;
+  }
+  p + p {
+    margin-top: -15px;
+  }
+}
+

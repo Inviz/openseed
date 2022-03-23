@@ -9,7 +9,8 @@ export default function Intro({children, ...props}) {
       {children}
       
       <h1>Open Seed</h1>
-      <p>Create your own plants</p>
+      <p>Designer plants</p>
+      <p><strong>by you</strong></p>
     </div>
   </animated.div>
 }

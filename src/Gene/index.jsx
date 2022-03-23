@@ -1,7 +1,7 @@
 import style from './style.module.scss'
 import slideStyle from '../slide/style.module.scss'
 import { useTransition, config, animated } from 'react-spring';
-import { useState, useEffect, useMemo } from 'preact/hooks';
+import { useState, useEffect, useMemo, useRef } from 'preact/hooks';
 
 import { useGestureDrag } from '../scenes.jsx'
 
@@ -10,6 +10,10 @@ export default function Gene({ children, navigation, navigate, settings, state, 
   const setChoice = (value) => {
     setState((s) => ({...s, [props.id]: value}))
   }
+  const gesture = useRef()
+
+
+
 
   const index = useMemo(() => {
     if (props.id == 'gene1') {
@@ -155,7 +159,7 @@ export default function Gene({ children, navigation, navigate, settings, state, 
   }
 
 
-  const { bind, scrub } = useGestureDrag(setTab, state, scenes, settings, items, getGestureScene, {
+  const { bind, scrub } = useGestureDrag(gesture, setTab, state, scenes, settings, items, getGestureScene, {
     axis: 'x',
     enabled: (navigation.current == 'chooseGene' + (index + 1) || navigation.current == 'chosenGene' + (index + 1))
   });

@@ -19,9 +19,7 @@ const getWheel = (settings) => {
 }
 
 
-export function useGestureDrag(navigate, state, scenes, settings, items, getGestureScene, options, props) {
-
-  const gesture = useRef()
+export function useGestureDrag(gesture, navigate, state, scenes, settings, items, getGestureScene, options, props) {
 
   const scrub = (fromSceneName, toSceneName, delta) => {
     const fromScene = scenes[fromSceneName];
@@ -97,9 +95,12 @@ export function useGestureDrag(navigate, state, scenes, settings, items, getGest
           console.log('Back', gesture.scene)
           navigate(navigation.current);
         }
-        for (var prop in gesture) {
-          gesture[prop] = null;
-        }
+        requestAnimationFrame(() => {
+
+          for (var prop in gesture) {
+            gesture[prop] = null;
+          }
+        })
       }
     },
   },
@@ -113,7 +114,7 @@ export function useGestureDrag(navigate, state, scenes, settings, items, getGest
     },
   });
 
-  return {scrub, bind};
+  return {scrub, bind, gesture};
 }
 
 

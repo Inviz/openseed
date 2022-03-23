@@ -7,8 +7,8 @@
 @font-face {
   font-family: 'New York Small';
   src: local('New York Small Regular'), local('NewYorkSmall-Regular'),
-      url('/fonts/subset-NewYorkSmall-Regular.woff2') format('woff2'),
-      url('/fonts/subset-NewYorkSmall-Regular.woff') format('woff');
+      url('./fonts/subset-NewYorkSmall-Regular.woff2') format('woff2'),
+      url('./fonts/subset-NewYorkSmall-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

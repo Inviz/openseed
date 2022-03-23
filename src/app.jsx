@@ -48,6 +48,9 @@ export function App(props) {
 
   const [state, setState] = useState(() => ({}));
 
+  const gesture = useRef()
+
+
 
   useEffect(() => {
     const onResize = () => {
@@ -75,7 +78,10 @@ export function App(props) {
     }, 500)
   }, []);
  */
-  
+    
+
+
+
   const items = useMemo(() => [
     {Component: Intro, id: "intro"},
     {Component: Plants, id: "plants"},
@@ -91,7 +97,7 @@ export function App(props) {
         getStyle(scenes[navigation.current][item.id])
   }), [navigation]);
 
-
+  
   const transitions = useTransition(items, {
     from: (item) => getStyle(scenes[navigation.previous][item.id]),
     enter: (item) => getStyle(scenes[navigation.current][item.id]) ,
@@ -114,7 +120,7 @@ export function App(props) {
       return c;
     },
     delay: (id) => {
-      if (!scenes[navigation.current][id] || !scenes[navigation.current][id].$delay) {
+      if (!scenes[navigation.current][id] || !scenes[navigation.current][id].$delay || (gesture.scene)) {
         return
       }
       var delay = scenes[navigation.current][id].$delay;
@@ -130,17 +136,15 @@ export function App(props) {
   });
 
 
-
-  const {bind, scrub} = useGestureDrag(navigate, state, scenes, settings, items, getGestureScene, {
+  var {bind, scrub} = useGestureDrag(gesture, navigate, state, scenes, settings, items, getGestureScene, {
     axis: 'lock'
   });
   useEffect(() => {
     var i = 0;
     setInterval(() => {
-//      scrub('results', i += 0.1)
+  //      scrub('results', i += 0.1)
     })
   }, [])
-
 
   return <div class={style.app} {...bind(navigation)} style={{touchAction: 'pan-x pan-y'}}>
     {transitions((style, {Component, ...props}) => (
