@@ -8,7 +8,7 @@ export default function Intro({children, ...props}) {
     <div class={`${slideStyle.inside} ${style.inside}`}>
       {children}
       
-      <h1>Open seed</h1>
+      <h1>Open Seed</h1>
       <p>Create your own plants</p>
     </div>
   </animated.div>
