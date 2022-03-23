@@ -5,12 +5,12 @@ import { useTransition, config, animated } from 'react-spring';
 export default function Details({children, navigation, navigate, ...props}) {
   const currentGene = navigation.current.match(/Gene\d+/)
   const isCurrent = navigation.current.includes('details')
-  return <animated.div {...props} className={`${slideStyle.slide} ${style.slide} ${props.class}`}>
+  return <animated.div {...props} className={`${slideStyle.slide} ${style.slide} ${isCurrent ? style.current : null} ${props.class}`} style={{...props.style, zIndex: 11}}>
     <div class={slideStyle.inside}>
       <header>
-        {isCurrent && <button onClick={() => navigate('chosen' + currentGene[0])} class={slideStyle.back}>▲ Mod</button>}
-        {isCurrent && <button disabled>Customize mod</button>}
-        {currentGene && !isCurrent && <button onClick={() => navigate('details' + currentGene[0])}>▼ Details and customization</button>}
+        <button hidden={!isCurrent} onClick={() => navigate('chosen' + currentGene[0])} class={slideStyle.back}>▲ Mod</button>
+        <button disabled hidden={!isCurrent}>Customize mod</button>
+        <button hidden={!(currentGene && !isCurrent)} onClick={() => navigate('details' + currentGene[0])}>▼ Read more/Customize </button>
       </header>   
       <div class={style.content}>
 

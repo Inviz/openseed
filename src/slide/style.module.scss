@@ -20,20 +20,40 @@
     position: sticky;
     top: 0;
     display: flex;
-    padding: 0 20px;
+    padding:  20px;
 
     .back {
       position: absolute;
       left: 20px;
     }
+
+    .forward {
+      position: absolute;
+      right: 20px;
+    }
+
+    button, > span {
+      transition: opacity 0.3s;
+    }
+    
+    button[disabled] {
+      color: #999;
+    }
+
+      button[hidden],  > span[hidden] {
+        position: absolute;
+        display: block;
+        opacity: 0;
+        pointer-events: none;
+      }
+
   }
 }
 
 .inside {
-  overflow-y: auto;
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .slide:global(.intro) {
@@ -43,7 +63,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .tree {
   //margin-left: 50px;
   > li {
@@ -61,6 +80,11 @@
       padding: 10px;
       margin: 0 -10px;
       border-top: 1px solid #ccc;;
+      &:after {
+        content: '▶';
+        float: right;
+        color: #ccc;
+      }
     }
   }
 }

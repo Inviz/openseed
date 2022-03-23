@@ -1,0 +1,21 @@
+.info {
+  padding: 20px;
+  padding-top: 270px;
+}
+
+.inside {
+  text-align: center;
+  header {
+    margin-bottom: 120px;;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+}
+
+.actions button {
+  margin-bottom: 10px;;
+}

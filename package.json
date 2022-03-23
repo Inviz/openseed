@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@use-gesture/react": "^10.2.10",
     "preact": "^10.5.15",
     "react-spring": "^9.4.4",
     "sass": "^1.49.9"

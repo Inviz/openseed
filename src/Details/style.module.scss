@@ -1,3 +1,32 @@
 .content {
   padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+.slide {
+
+  transition: background-color 0.2s;
+  header {
+
+    transition: background-color .7s;
+  }
+
+  .content {
+    background: #fff;
+    border-top: 1px solid #fff;
+  }
+}
+.slide:not(.current) {
+   header {
+    background-color: rgba(200,200,200, 0);
+  }
+  
+  background-color: rgba(200,200,200, 0);
+  border-top: 0;
+
+  .content {
+    border-top: 1px solid #ccc;
+  }
 }

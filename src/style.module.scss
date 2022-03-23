@@ -4,6 +4,24 @@
   margin: 0;
   padding: 0;
 }
+@font-face {
+  font-family: 'New York Small';
+  src: local('New York Small Regular'), local('NewYorkSmall-Regular'),
+      url('/fonts/subset-NewYorkSmall-Regular.woff2') format('woff2'),
+      url('/fonts/subset-NewYorkSmall-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+p, li, h1, h2, dl {
+  font-family: 'New York Small';
+}
+
+p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
 
 :global(#app) {
   height: 100%;
@@ -20,6 +38,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select:none;
+  -webkit-touch-callout: none;
+  @media (min-width: 500px) {
+
+user-select:none;
+    &:after {
+      z-index: 30;
+      content: '';
+      display: block;
+      position: absolute;
+      width: 440px;
+      height: 880px;
+      background: url(./iphone.png) no-repeat center;
+      background-size: 100% 100%;
+      pointer-events: none;;
+    }
+  }
 }
 html {
   height: 100%;
@@ -62,4 +97,7 @@ a {
 
 button {
   padding: 5px 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  color: #000;
 }
